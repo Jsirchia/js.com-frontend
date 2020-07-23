@@ -17,4 +17,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-west-2
     - name: Upload to S3
-      run: aws s3 sync ./ s3://jamessirchia.com --exclude ".git*" --dryrun
+      run: aws s3 sync ./ ${{ secrets.S3_BUCKET }} --delete --exclude ".git*" --dryrun
+    #- name: Invalidate CloudFront
+     # run: aws 
+      
